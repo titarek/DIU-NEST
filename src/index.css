@@ -1,0 +1,193 @@
+:root {
+  --diu-navy: #15345B;
+  --diu-navy-dark: #0D223C;
+  --diu-navy-light: #1E4678;
+  --diu-primary: #2563EB;
+  --diu-primary-hover: #1D4ED8;
+  --diu-primary-subtle: #EFF6FF;
+  --diu-accent: #38BDF8;
+  --diu-accent-dark: #0284C7;
+  --diu-accent-subtle: #F0F9FF;
+  
+  --diu-bg: #F7F9FC;
+  --diu-surface: #FFFFFF;
+  --diu-surface-hover: #F8FAFC;
+  --diu-surface-alt: #F1F5F9;
+  --diu-border: #E2E8F0;
+  --diu-border-subtle: #F1F5F9;
+  --diu-border-strong: #CBD5E1;
+  
+  --diu-text-primary: #0F172A;
+  --diu-text-secondary: #475569;
+  --diu-text-muted: #64748B;
+  --diu-text-light: #94A3B8;
+  --diu-text-inverse: #FFFFFF;
+  
+  --diu-success: #10B981;
+  --diu-success-hover: #059669;
+  --diu-success-subtle: #ECFDF5;
+  --diu-success-border: #A7F3D0;
+  --diu-success-text: #065F46;
+
+  --diu-warning: #F59E0B;
+  --diu-warning-subtle: #FFFBEB;
+  --diu-warning-border: #FDE68A;
+  --diu-warning-text: #92400E;
+
+  --diu-danger: #EF4444;
+  --diu-danger-subtle: #FEF2F2;
+  --diu-danger-border: #FECACA;
+  --diu-danger-text: #991B1B;
+
+  --diu-info: #3B82F6;
+  --diu-info-subtle: #EFF6FF;
+  --diu-info-border: #BFDBFE;
+  --diu-info-text: #1E40AF;
+
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+  --shadow-xs: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(16, 24, 40, 0.1), 0 1px 2px -1px rgba(16, 24, 40, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(16, 24, 40, 0.1), 0 2px 4px -2px rgba(16, 24, 40, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(16, 24, 40, 0.08), 0 4px 6px -4px rgba(16, 24, 40, 0.03);
+  --shadow-xl: 0 20px 25px -5px rgba(16, 24, 40, 0.1), 0 8px 10px -6px rgba(16, 24, 40, 0.04);
+  --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.2);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--diu-bg);
+  color: var(--diu-text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--diu-navy);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.35rem; }
+h4 { font-size: 1.125rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.875rem; }
+
+p {
+  color: var(--diu-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--diu-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--diu-primary-hover);
+}
+
+button {
+  font-family: var(--font-heading);
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 0.925rem;
+  transition: all var(--transition-fast);
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--diu-primary);
+  outline-offset: 2px;
+}
+
+input, select, textarea {
+  font-family: var(--font-body);
+  font-size: 0.925rem;
+  color: var(--diu-text-primary);
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.container-fluid {
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media print {
+  body {
+    background: #FFF !important;
+    color: #000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}

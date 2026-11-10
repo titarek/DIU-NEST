@@ -1,24 +1,97 @@
 import React, { useState } from 'react';
-import Navbar from './components/Navbar';
-import HallList from './components/HallList';
-import './App.css';
+import { ToastProvider } from './context/ToastContext';
 
-function App() {
-  const [page, setPage] = useState('halls');
+import './index.css';
+import './styles/components.css';
+import './styles/portal.css';
+
+import PublicNavbar from './components/layouts/PublicNavbar';
+import PublicFooter from './components/layouts/PublicFooter';
+
+import LandingPage from './pages/public/LandingPage';
+import AboutPage from './pages/public/AboutPage';
+import HallInfoPage from './pages/public/HallInfoPage';
+import HowItWorksPage from './pages/public/HowItWorksPage';
+import FaqPage from './pages/public/FaqPage';
+import ContactPage from './pages/public/ContactPage';
+import LoginPage from './pages/public/LoginPage';
+import RegisterPage from './pages/public/RegisterPage';
+
+function MainPublicApp() {
+  const [currentPage, setCurrentPage] = useState('home');
+
+  const handleNavigate = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const renderCurrentPage = () => {
+    switch (currentPage) {
+      case 'home':
+        return (
+          <LandingPage
+            onNavigate={handleNavigate}
+            onOpenLogin={() => handleNavigate('login')}
+            onOpenRegister={() => handleNavigate('register')}
+          />
+        );
+      case 'about':
+        return <AboutPage onNavigate={handleNavigate} />;
+      case 'halls':
+        return <HallInfoPage onOpenRegister={() => handleNavigate('register')} />;
+      case 'how-it-works':
+        return <HowItWorksPage onOpenRegister={() => handleNavigate('register')} />;
+      case 'faq':
+        return <FaqPage />;
+      case 'contact':
+        return <ContactPage />;
+      case 'login':
+        return (
+          <LoginPage
+            onSuccess={() => handleNavigate('home')}
+            onSwitchToRegister={() => handleNavigate('register')}
+          />
+        );
+      case 'register':
+        return (
+          <RegisterPage
+            onSuccess={() => handleNavigate('login')}
+            onSwitchToLogin={() => handleNavigate('login')}
+          />
+        );
+      default:
+        return (
+          <LandingPage
+            onNavigate={handleNavigate}
+            onOpenLogin={() => handleNavigate('login')}
+            onOpenRegister={() => handleNavigate('register')}
+          />
+        );
+    }
+  };
 
   return (
-    <div className="app">
-      <Navbar currentPage={page} onNavigate={setPage} />
-      <main className="app__main">
-        {page === 'halls' && <HallList />}
-        {page === 'apply' && <div className="placeholder">Application form coming soon…</div>}
-        {page === 'track' && <div className="placeholder">Tracker coming soon…</div>}
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: 'var(--diu-bg)' }}>
+      <PublicNavbar
+        activePage={currentPage}
+        onNavigate={handleNavigate}
+        onOpenLogin={() => handleNavigate('login')}
+        onOpenRegister={() => handleNavigate('register')}
+      />
+
+      <main style={{ flex: 1 }}>
+        {renderCurrentPage()}
       </main>
-      <footer className="app__footer">
-        DIU Nest · Smart Hall Seat Management
-      </footer>
+
+      <PublicFooter onNavigate={handleNavigate} />
     </div>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <ToastProvider>
+      <MainPublicApp />
+    </ToastProvider>
+  );
+}

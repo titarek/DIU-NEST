@@ -106,6 +106,7 @@ export default function FaqPage() {
         </div>
       </div>
 
+      
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '3rem' }}>
         {filteredFaqs.length > 0 ? (
           filteredFaqs.map((faq, idx) => (
@@ -158,6 +159,7 @@ export default function FaqPage() {
         )}
       </div>
 
+      
       <div style={{ background: 'var(--diu-surface-alt)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', textAlign: 'center', border: '1px solid var(--diu-border)' }}>
         <h4 style={{ color: 'var(--diu-navy)', marginBottom: '0.35rem' }}>Still have an unanswered inquiry?</h4>
         <p style={{ fontSize: '0.875rem', color: 'var(--diu-text-secondary)', marginBottom: '0.75rem' }}>

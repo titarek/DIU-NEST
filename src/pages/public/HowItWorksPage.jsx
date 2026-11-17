@@ -118,6 +118,7 @@ export default function HowItWorksPage({ onOpenRegister }) {
         })}
       </div>
 
+      
       <div style={{ textAlign: 'center', background: 'var(--diu-navy)', color: '#FFF', padding: '3rem 2rem', borderRadius: 'var(--radius-xl)' }}>
         <h3 style={{ fontSize: '1.8rem', color: '#FFF', marginBottom: '0.75rem' }}>Ready to Begin Your Application?</h3>
         <p style={{ color: '#CBD5E1', marginBottom: '1.75rem', maxWidth: '480px', margin: '0 auto 1.5rem' }}>

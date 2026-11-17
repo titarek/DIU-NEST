@@ -66,6 +66,7 @@ export default function RegisterPage({ onSuccess, onSwitchToLogin }) {
           </p>
         </div>
 
+        
         <form onSubmit={handleRegister}>
           <div className="form-group">
             <label className="form-label">Full Name as per DIU ERP <span className="form-required">*</span></label>

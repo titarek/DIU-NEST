@@ -188,6 +188,7 @@ export default function RegisterPage({ onSuccess, onSwitchToLogin }) {
             </div>
           </div>
 
+          
           <div style={{ marginBottom: '1.25rem' }}>
             <label style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.8125rem', color: 'var(--diu-text-secondary)', cursor: 'pointer' }}>
               <input

@@ -74,6 +74,7 @@ export default function LoginPage({ onSuccess, onSwitchToRegister }) {
             />
           </div>
 
+          
           <div className="form-group">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <label className="form-label">Password</label>
@@ -121,6 +122,7 @@ export default function LoginPage({ onSuccess, onSwitchToRegister }) {
         </div>
       </div>
 
+      
       {isSuccessModalOpen && (
         <div className="modal-overlay" onClick={() => setIsSuccessModalOpen(false)}>
           <div className="modal-dialog modal-sm" onClick={(e) => e.stopPropagation()} style={{ textAlign: 'center', padding: '2rem 1.5rem' }}>
